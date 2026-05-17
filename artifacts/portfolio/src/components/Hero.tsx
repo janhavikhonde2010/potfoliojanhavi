@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, FileText, Mail, Eye, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import TerminalWidget from "@/components/TerminalWidget";
 
 const metrics = [
   { label: "Production Projects", value: 6, suffix: "+" },
@@ -216,6 +217,9 @@ export default function Hero() {
               Contact Me
             </motion.button>
           </motion.div>
+
+          {/* Terminal widget */}
+          <TerminalWidget />
 
           {/* Metric cards — animated counters */}
           <motion.div
