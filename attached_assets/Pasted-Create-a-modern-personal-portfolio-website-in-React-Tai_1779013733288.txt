@@ -1,0 +1,168 @@
+Create a modern personal portfolio website in React + Tailwind CSS with a premium dark AI-inspired theme.
+
+Important:
+Do NOT redesign randomly or invent content.
+Use the uploaded resume as the primary source of truth.
+Recreate the existing portfolio structure while making it cleaner, editable, and production-ready.
+
+Requirements:
+
+Overall Design:
+- Premium dark AI-style UI
+- Smooth gradients
+- Modern SaaS style
+- Framer Motion animations
+- Fully responsive (mobile + desktop)
+- Smooth scrolling
+- Professional recruiter-focused design
+- Clean component structure
+- Ready for Netlify/Vercel deployment
+
+Navbar:
+- Logo/Name: Janhavi Khonde
+- Menu:
+  Home
+  About
+  Skills
+  Projects
+  Experience
+  Contact
+- CTA button:
+  Hire Me
+
+Hero Section:
+
+Headline:
+"Building AI-powered products that actually ship."
+
+Subheadline:
+"I'm Janhavi Khonde — Full Stack AI Engineer building production SaaS systems, AI automation workflows, dashboards, APIs, and computer vision applications."
+
+Buttons:
+- View Projects
+- Download Resume
+- Contact Me
+
+Add animated background effects.
+
+Add metrics section under hero:
+
+Metrics:
+- 6+ Production Projects
+- 10K+ Lead Records Processed
+- 15+ Automated Workflows
+- 30% API Cost Reduction
+
+About Section:
+
+Generate content from resume and keep it concise:
+Focus on:
+- Full Stack Development
+- AI Automation
+- SaaS systems
+- OpenAI integrations
+- Problem-solving mindset
+
+Skills Section:
+
+Frontend:
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+- Tailwind CSS
+
+Backend:
+- Node.js
+- Express.js
+- MongoDB
+- REST APIs
+
+AI & Automation:
+- OpenAI APIs
+- Make.com
+- n8n
+- Prompt Engineering
+- Workflow Automation
+
+Integrations:
+- Postman
+- Webhooks
+- Third-party APIs
+
+Projects Section:
+
+Display projects in modern animated cards.
+
+Project 1:
+KodeKraft — Multi-Industry AI SaaS CRM
+
+Description:
+AI-powered CRM platform with analytics engine, lead pipeline, AI assistant, and lead capture system.
+
+Tech:
+React.js
+Node.js
+MongoDB
+OpenAI APIs
+
+Project 2:
+Lead Analytics Dashboard
+
+Description:
+Real-time dashboard handling 10K+ lead records with filtering and API-driven search.
+
+Tech:
+React.js
+Node.js
+APIs
+
+Project 3:
+Clarity Hub — WhatsApp Analytics App
+
+Description:
+Analytics platform tracking campaign performance and customer engagement.
+
+Tech:
+Automation + APIs
+
+Project 4:
+Tactical Vision AI
+
+Description:
+Real-time human detection and target tracking system using trajectory prediction.
+
+Tech:
+Python
+OpenCV
+YOLOv8
+ByteTrack
+
+Experience Section:
+
+Extract directly from uploaded resume.
+
+Rules:
+- Preserve company names
+- Preserve project impact
+- Preserve metrics
+- Show timeline professionally
+
+Contact Section:
+
+Email
+LinkedIn
+GitHub
+
+Footer:
+
+"Built by Janhavi Khonde"
+
+Important instructions:
+
+- Use uploaded resume as source of truth
+- Do NOT invent skills or experience
+- Prioritize production projects over generic projects
+- Keep everything recruiter-friendly
+- Generate clean and maintainable code
+- Optimize for performance
