@@ -15,115 +15,143 @@ export default function Hero() {
     if (element) {
       window.scrollTo({
         top: element.getBoundingClientRect().top + window.scrollY - 80,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] mix-blend-screen pointer-events-none" />
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] mix-blend-screen pointer-events-none" />
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden"
+    >
+      {/* Dot grid */}
+      <div className="absolute inset-0 dot-grid [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_50%,transparent_100%)] opacity-60 z-0" />
+
+      {/* Ambient orbs */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="orb-animate absolute top-[18%] left-[12%] w-[520px] h-[520px] rounded-full bg-purple-600/20 blur-[110px]" />
+        <div className="orb-animate-alt absolute top-[30%] right-[10%] w-[420px] h-[420px] rounded-full bg-blue-500/15 blur-[100px]" />
+        <div className="orb-animate absolute bottom-[10%] left-[40%] w-[340px] h-[340px] rounded-full bg-cyan-500/12 blur-[90px]" />
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Status pill */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/8 backdrop-blur-md mb-10"
           >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-medium text-muted-foreground">Available for new opportunities</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+            <span className="text-sm font-medium text-purple-300 tracking-wide">
+              Available for new opportunities
+            </span>
           </motion.div>
 
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-foreground leading-[1.1]"
-            initial={{ opacity: 0, y: 20 }}
+          {/* Headline */}
+          <motion.h1
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-white leading-[1.08]"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Building AI-powered products that <span className="text-gradient-primary">actually ship.</span>
+            Building AI-powered
+            <br />
+            products that{" "}
+            <span className="text-gradient-primary">actually ship.</span>
           </motion.h1>
 
-          <motion.p 
-            className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
+          {/* Subheadline */}
+          <motion.p
+            className="text-lg md:text-xl text-white/50 mb-12 max-w-2xl mx-auto leading-relaxed font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            I'm Janhavi Khonde — Full Stack AI Engineer building production SaaS systems, AI automation workflows, dashboards, APIs, and computer vision applications.
+            I'm Janhavi Khonde — Full Stack AI Engineer building production SaaS
+            systems, AI automation workflows, dashboards, APIs, and computer
+            vision applications.
           </motion.p>
 
-          <motion.div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+          {/* CTA buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-24"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Button 
-              size="lg" 
-              className="w-full sm:w-auto bg-gradient-primary hover:opacity-90 text-white rounded-full px-8 py-6 text-lg shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all group"
+            <Button
+              size="lg"
+              className="w-full sm:w-auto bg-gradient-primary hover:opacity-90 text-white rounded-full px-8 h-12 text-base font-semibold shadow-[0_0_40px_rgba(139,92,246,0.45)] hover:shadow-[0_0_60px_rgba(139,92,246,0.6)] transition-all duration-300 group border-0"
               onClick={() => scrollTo("#projects")}
               data-testid="btn-hero-projects"
             >
               View Projects
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="w-full sm:w-auto rounded-full px-8 py-6 text-lg bg-white/5 border-white/10 hover:bg-white/10 backdrop-blur-md"
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto rounded-full px-8 h-12 text-base bg-white/4 border-white/12 hover:bg-white/8 hover:border-white/20 backdrop-blur-md text-white/80 hover:text-white transition-all duration-300"
               asChild
               data-testid="btn-hero-resume"
             >
-              <a href="https://janhavikhonde.netlify.app" target="_blank" rel="noopener noreferrer">
-                <Download className="mr-2 w-5 h-5" />
+              <a
+                href="https://janhavikhonde.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Download className="mr-2 w-4 h-4" />
                 Download Resume
               </a>
             </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="w-full sm:w-auto rounded-full px-8 py-6 text-lg bg-white/5 border-white/10 hover:bg-white/10 backdrop-blur-md"
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto rounded-full px-8 h-12 text-base bg-white/4 border-white/12 hover:bg-white/8 hover:border-white/20 backdrop-blur-md text-white/80 hover:text-white transition-all duration-300"
               onClick={() => scrollTo("#contact")}
               data-testid="btn-hero-contact"
             >
-              <Mail className="mr-2 w-5 h-5" />
+              <Mail className="mr-2 w-4 h-4" />
               Contact Me
             </Button>
           </motion.div>
 
-          {/* Metric Cards */}
-          <motion.div 
+          {/* Metric cards */}
+          <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
           >
             {metrics.map((metric, i) => (
-              <div 
-                key={i} 
-                className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center group hover:border-primary/50 transition-colors"
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 + i * 0.08 }}
+                className="group relative glow-card rounded-2xl p-6 flex flex-col items-center justify-center overflow-hidden cursor-default"
                 data-testid={`metric-card-${i}`}
               >
-                <h3 className="text-3xl font-bold text-foreground mb-2 group-hover:text-gradient-primary transition-all">
+                <div className="card-gradient-top" />
+                <h3 className="text-4xl font-bold text-white mb-2 number-glow">
                   {metric.value}
                 </h3>
-                <p className="text-sm text-muted-foreground text-center">
+                <p className="text-xs text-white/45 text-center font-medium tracking-wide leading-snug">
                   {metric.label}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
       </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
     </section>
   );
 }
