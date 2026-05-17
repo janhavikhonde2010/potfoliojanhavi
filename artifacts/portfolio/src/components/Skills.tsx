@@ -6,160 +6,199 @@ import {
 } from "react-icons/si";
 import { Monitor, Server, Bot, Database, Workflow, Cloud } from "lucide-react";
 
-const skillCategories = [
+const categories = [
   {
     title: "Frontend",
-    icon: <Monitor size={20} />,
-    color: "purple",
-    iconBg: "bg-purple-500/15 border-purple-500/25 text-purple-400",
-    glow: "hover:shadow-[0_0_50px_rgba(168,85,247,0.15)]",
-    topLine: "via-purple-500",
+    icon: <Monitor size={18} />,
+    accentColor: "#a855f7",
+    glowColor: "rgba(168,85,247,0.18)",
+    borderColor: "rgba(168,85,247,0.2)",
+    lineColor: "#a855f7",
     skills: [
-      { name: "React.js", icon: <SiReact className="text-sky-400" /> },
-      { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
-      { name: "HTML5", icon: <SiHtml5 className="text-orange-500" /> },
-      { name: "CSS3", icon: null },
-      { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" /> },
+      { name: "React.js", icon: <SiReact />, color: "#61DAFB" },
+      { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
+      { name: "HTML5", icon: <SiHtml5 />, color: "#E34F26" },
+      { name: "CSS3", icon: null, color: "#264de4" },
+      { name: "Tailwind CSS", icon: <SiTailwindcss />, color: "#38BDF8" },
     ],
   },
   {
     title: "Backend",
-    icon: <Server size={20} />,
-    color: "blue",
-    iconBg: "bg-blue-500/15 border-blue-500/25 text-blue-400",
-    glow: "hover:shadow-[0_0_50px_rgba(59,130,246,0.15)]",
-    topLine: "via-blue-500",
+    icon: <Server size={18} />,
+    accentColor: "#3b82f6",
+    glowColor: "rgba(59,130,246,0.18)",
+    borderColor: "rgba(59,130,246,0.2)",
+    lineColor: "#3b82f6",
     skills: [
-      { name: "Node.js", icon: <SiNodedotjs className="text-green-500" /> },
-      { name: "Express.js", icon: <SiExpress className="text-white/70" /> },
-      { name: "REST APIs", icon: null },
-      { name: "JWT Auth", icon: null },
-      { name: "Webhooks", icon: null },
+      { name: "Node.js", icon: <SiNodedotjs />, color: "#8CC84B" },
+      { name: "Express.js", icon: <SiExpress />, color: "#fff" },
+      { name: "REST APIs", icon: null, color: "#a855f7" },
+      { name: "JWT Auth", icon: null, color: "#a855f7" },
+      { name: "Webhooks", icon: null, color: "#a855f7" },
     ],
   },
   {
     title: "AI & Automation",
-    icon: <Bot size={20} />,
-    color: "cyan",
-    iconBg: "bg-cyan-500/15 border-cyan-500/25 text-cyan-400",
-    glow: "hover:shadow-[0_0_50px_rgba(6,182,212,0.15)]",
-    topLine: "via-cyan-500",
+    icon: <Bot size={18} />,
+    accentColor: "#06b6d4",
+    glowColor: "rgba(6,182,212,0.18)",
+    borderColor: "rgba(6,182,212,0.2)",
+    lineColor: "#06b6d4",
     skills: [
-      { name: "OpenAI API", icon: <SiOpenai className="text-white/80" /> },
-      { name: "Prompt Engineering", icon: null },
-      { name: "Make.com", icon: null },
-      { name: "n8n", icon: null },
-      { name: "AI Chatbots", icon: null },
+      { name: "OpenAI API", icon: <SiOpenai />, color: "#fff" },
+      { name: "Prompt Engineering", icon: null, color: "#06b6d4" },
+      { name: "Make.com", icon: null, color: "#06b6d4" },
+      { name: "n8n", icon: null, color: "#06b6d4" },
+      { name: "AI Chatbots", icon: null, color: "#06b6d4" },
     ],
   },
   {
     title: "Database",
-    icon: <Database size={20} />,
-    color: "purple",
-    iconBg: "bg-purple-500/15 border-purple-500/25 text-purple-400",
-    glow: "hover:shadow-[0_0_50px_rgba(168,85,247,0.15)]",
-    topLine: "via-purple-500",
+    icon: <Database size={18} />,
+    accentColor: "#a855f7",
+    glowColor: "rgba(168,85,247,0.18)",
+    borderColor: "rgba(168,85,247,0.2)",
+    lineColor: "#a855f7",
     skills: [
-      { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
-      { name: "MongoDB Atlas", icon: null },
-      { name: "SQL", icon: null },
+      { name: "MongoDB", icon: <SiMongodb />, color: "#4DB33D" },
+      { name: "MongoDB Atlas", icon: null, color: "#a855f7" },
+      { name: "SQL", icon: null, color: "#a855f7" },
     ],
   },
   {
     title: "Integrations",
-    icon: <Workflow size={20} />,
-    color: "blue",
-    iconBg: "bg-blue-500/15 border-blue-500/25 text-blue-400",
-    glow: "hover:shadow-[0_0_50px_rgba(59,130,246,0.15)]",
-    topLine: "via-blue-500",
+    icon: <Workflow size={18} />,
+    accentColor: "#3b82f6",
+    glowColor: "rgba(59,130,246,0.18)",
+    borderColor: "rgba(59,130,246,0.2)",
+    lineColor: "#3b82f6",
     skills: [
-      { name: "Postman", icon: <SiPostman className="text-orange-500" /> },
-      { name: "API Testing", icon: null },
-      { name: "JSON Data Mapping", icon: null },
-      { name: "Third-Party APIs", icon: null },
+      { name: "Postman", icon: <SiPostman />, color: "#FF6C37" },
+      { name: "API Testing", icon: null, color: "#3b82f6" },
+      { name: "JSON Mapping", icon: null, color: "#3b82f6" },
+      { name: "Third-Party APIs", icon: null, color: "#3b82f6" },
     ],
   },
   {
     title: "Deployment",
-    icon: <Cloud size={20} />,
-    color: "cyan",
-    iconBg: "bg-cyan-500/15 border-cyan-500/25 text-cyan-400",
-    glow: "hover:shadow-[0_0_50px_rgba(6,182,212,0.15)]",
-    topLine: "via-cyan-500",
+    icon: <Cloud size={18} />,
+    accentColor: "#06b6d4",
+    glowColor: "rgba(6,182,212,0.18)",
+    borderColor: "rgba(6,182,212,0.2)",
+    lineColor: "#06b6d4",
     skills: [
-      { name: "Git", icon: <SiGit className="text-orange-600" /> },
-      { name: "GitHub", icon: <SiGithub className="text-white/80" /> },
-      { name: "Vercel", icon: <SiVercel className="text-white/80" /> },
-      { name: "Netlify", icon: <SiNetlify className="text-teal-400" /> },
-      { name: "Render", icon: null },
+      { name: "Git", icon: <SiGit />, color: "#F05032" },
+      { name: "GitHub", icon: <SiGithub />, color: "#fff" },
+      { name: "Vercel", icon: <SiVercel />, color: "#fff" },
+      { name: "Netlify", icon: <SiNetlify />, color: "#00C7B7" },
+      { name: "Render", icon: null, color: "#06b6d4" },
     ],
   },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 relative">
-      {/* Ambient center glow */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[700px] h-[400px] rounded-full bg-blue-600/6 blur-[120px]" />
+    <section id="skills" className="py-32 relative overflow-hidden">
+      {/* Center ambient glow */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+        <div className="w-[800px] h-[500px] rounded-full bg-blue-700/5 blur-[140px]" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <div className="section-label mx-auto inline-flex">
-            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+          <div className="section-label mx-auto inline-flex mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
             What I Work With
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">
-            Technical Skills
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
+            Technical <span className="text-gradient-primary">Skills</span>
           </h2>
-          <div className="w-16 h-[2px] bg-gradient-primary rounded-full shadow-[0_0_12px_rgba(168,85,247,0.7)] mx-auto" />
+          <div className="w-16 h-[2px] rounded-full mx-auto shadow-[0_0_12px_rgba(59,130,246,0.7)]"
+            style={{ background: "linear-gradient(90deg,#a855f7,#3b82f6,#06b6d4)" }} />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {skillCategories.map((category, idx) => (
+          {categories.map((cat, idx) => (
             <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 24 }}
+              key={cat.title}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className={`group glow-card glass-card-hover rounded-2xl p-6 relative overflow-hidden ${category.glow} cursor-default`}
+              transition={{ duration: 0.5, delay: idx * 0.07 }}
+              whileHover={{ y: -5 }}
+              className="group rounded-2xl p-6 relative overflow-hidden cursor-default"
+              style={{
+                background: "rgba(255,255,255,0.025)",
+                backdropFilter: "blur(20px)",
+                border: `1px solid ${cat.borderColor}`,
+                boxShadow: `0 8px 40px rgba(0,0,0,0.4)`,
+                transition: "box-shadow 0.3s ease, transform 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow =
+                  `0 12px 50px rgba(0,0,0,0.5), 0 0 60px ${cat.glowColor}`;
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow =
+                  `0 8px 40px rgba(0,0,0,0.4)`;
+              }}
               data-testid={`skill-card-${idx}`}
             >
-              {/* Gradient top line */}
-              <div
-                className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent ${category.topLine} to-transparent opacity-50 group-hover:opacity-100 transition-opacity`}
-              />
+              {/* Top gradient line */}
+              <div className="absolute top-0 left-0 right-0 h-[1px] opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: `linear-gradient(90deg, transparent, ${cat.lineColor}, transparent)` }} />
 
-              <div className="flex items-center gap-3 mb-6">
-                <div
-                  className={`w-10 h-10 rounded-xl border flex items-center justify-center ${category.iconBg}`}
-                >
-                  {category.icon}
+              {/* Corner glow */}
+              <div className="absolute top-0 right-0 w-24 h-24 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
+                style={{ background: `radial-gradient(circle at top right, ${cat.glowColor}, transparent 70%)` }} />
+
+              {/* Category header */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: `${cat.accentColor}18`, border: `1px solid ${cat.accentColor}30`, color: cat.accentColor }}>
+                  {cat.icon}
                 </div>
-                <h3 className="text-base font-bold text-white">
-                  {category.title}
-                </h3>
+                <h3 className="text-sm font-bold text-white tracking-wide">{cat.title}</h3>
               </div>
 
+              {/* Skills */}
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <div
+                {cat.skills.map((skill) => (
+                  <motion.div
                     key={skill.name}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/4 border border-white/7 text-xs text-white/50 hover:text-white hover:bg-white/8 hover:border-white/15 transition-all duration-200"
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium cursor-default"
+                    style={{
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.07)",
+                      color: "rgba(255,255,255,0.5)",
+                      transition: "all 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.color = "rgba(255,255,255,0.9)";
+                      el.style.background = "rgba(255,255,255,0.07)";
+                      el.style.borderColor = `${cat.accentColor}40`;
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.color = "rgba(255,255,255,0.5)";
+                      el.style.background = "rgba(255,255,255,0.04)";
+                      el.style.borderColor = "rgba(255,255,255,0.07)";
+                    }}
                   >
                     {skill.icon && (
-                      <span className="text-sm leading-none">{skill.icon}</span>
+                      <span className="text-sm leading-none" style={{ color: skill.color }}>{skill.icon}</span>
                     )}
                     {skill.name}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
