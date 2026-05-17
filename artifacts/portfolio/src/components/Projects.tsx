@@ -3,6 +3,8 @@ import { ExternalLink, Play } from "lucide-react";
 import kodeKraftVideo from "@assets/KodeKraft_(1)_1779015320498.mp4";
 import visionVideo from "@assets/came_1779015359696.mp4";
 import clarityHubImg from "@assets/screenshot-1779015830984.png";
+import aiTokenImg from "@assets/image_1779016541894.png";
+import wiseParrotImg from "@assets/Screenshot_2026-05-13_205144_1779016593429.png";
 import rajivGandhiImg from "@assets/screenshot-1779015845091.png";
 
 type MediaItem =
@@ -38,8 +40,8 @@ const projects: Project[] = [
   {
     title: "Tactical Vision AI",
     description:
-      "AI-powered real-time human detection and monitoring system using Python, OpenCV, and MobileNet SSD for live camera-based tracking workflows.",
-    tech: ["Python", "OpenCV", "MobileNet SSD"],
+      "What if you could track someone even after they disappear from frame? Built a real-time Tactical Vision AI system using YOLOv8 + ByteTrack — simulating a tactical tracking interface capable of detecting, tracking, and predicting target movement in real time. Features human detection & multi-object tracking, target trajectory prediction after occlusion, threat classification based on speed + proximity, live radar visualization & motion trails, and a custom OpenCV HUD interface.",
+    tech: ["Python", "OpenCV", "YOLOv8", "ByteTrack", "NumPy"],
     link: "#",
     media: { type: "video", src: visionVideo },
     accent: "from-purple-500 to-cyan-500",
@@ -58,23 +60,12 @@ const projects: Project[] = [
     topLine: "via-cyan-500",
   },
   {
-    title: "Lead Analytics Dashboard",
-    description:
-      "Real-time production dashboard handling 10K+ lead records with dynamic filtering, data visualisation, and API-driven search pipelines.",
-    tech: ["React.js", "Node.js", "REST APIs"],
-    link: "https://client-report.thewiseparrot.com",
-    media: null,
-    accent: "from-blue-500 to-cyan-500",
-    glow: "hover:shadow-[0_0_60px_rgba(59,130,246,0.2)]",
-    topLine: "via-blue-500",
-  },
-  {
     title: "AI Token Analyzer",
     description:
       "AI token monitoring system built using OpenAI APIs to track real-time API consumption across all active integrations — reducing wasted spend by 30%.",
     tech: ["OpenAI APIs", "Node.js", "React.js"],
     link: "https://inteligencetoken.thewiseparrot.com/",
-    media: null,
+    media: { type: "image", src: aiTokenImg },
     accent: "from-purple-500 to-blue-500",
     glow: "hover:shadow-[0_0_60px_rgba(168,85,247,0.2)]",
     topLine: "via-purple-500",
@@ -85,7 +76,7 @@ const projects: Project[] = [
       "Built and deployed the company's primary lead generation and client acquisition platform — a fully responsive, production-grade marketing website.",
     tech: ["React.js", "Node.js", "CSS3"],
     link: "https://thewiseparrot.com/",
-    media: null,
+    media: { type: "image", src: wiseParrotImg },
     accent: "from-blue-500 to-purple-500",
     glow: "hover:shadow-[0_0_60px_rgba(59,130,246,0.2)]",
     topLine: "via-blue-400",
@@ -175,16 +166,13 @@ export default function Projects() {
               className={`group glow-card glass-card-hover rounded-2xl relative overflow-hidden flex flex-col h-full ${project.glow} cursor-default`}
               data-testid={`project-card-${idx}`}
             >
-              {/* Gradient top accent line */}
               <div
                 className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent ${project.topLine} to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
               />
 
               <div className="p-6 flex-1 flex flex-col">
-                {/* Media preview */}
                 <MediaPreview media={project.media} title={project.title} />
 
-                {/* Header row */}
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex-1 pr-3">
                     {project.badge && (
@@ -210,12 +198,10 @@ export default function Projects() {
                   )}
                 </div>
 
-                {/* Description */}
                 <p className="text-white/42 mb-6 flex-1 leading-relaxed text-xs">
                   {project.description}
                 </p>
 
-                {/* Tech + Live link row */}
                 <div className="pt-4 border-t border-white/6">
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.tech.map((t) => (

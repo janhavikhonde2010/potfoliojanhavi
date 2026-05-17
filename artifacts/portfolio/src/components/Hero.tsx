@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, FileText, Mail, Download, Eye, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const metrics = [
@@ -10,6 +11,8 @@ const metrics = [
 ];
 
 export default function Hero() {
+  const [resumeHovered, setResumeHovered] = useState(false);
+
   const scrollTo = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -37,6 +40,7 @@ export default function Hero() {
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+
           {/* Status pill */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -82,6 +86,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
+            {/* View Projects */}
             <Button
               size="lg"
               className="w-full sm:w-auto bg-gradient-primary hover:opacity-90 text-white rounded-full px-8 h-12 text-base font-semibold shadow-[0_0_40px_rgba(139,92,246,0.45)] hover:shadow-[0_0_60px_rgba(139,92,246,0.6)] transition-all duration-300 group border-0"
@@ -92,23 +97,73 @@ export default function Hero() {
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
 
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full sm:w-auto rounded-full px-8 h-12 text-base bg-white/4 border-white/12 hover:bg-white/8 hover:border-white/20 backdrop-blur-md text-white/80 hover:text-white transition-all duration-300"
-              asChild
+            {/* Resume — animated premium button */}
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               data-testid="btn-hero-resume"
+              onHoverStart={() => setResumeHovered(true)}
+              onHoverEnd={() => setResumeHovered(false)}
+              className="relative w-full sm:w-auto group"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
-              <a
-                href="https://janhavikhonde.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Download className="mr-2 w-4 h-4" />
-                Download Resume
-              </a>
-            </Button>
+              {/* Animated border glow */}
+              <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-[1px]" />
+              <div className="absolute -inset-[2px] rounded-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-md" />
 
+              <div className="relative flex items-center justify-center gap-2.5 rounded-full px-8 h-12 text-base font-semibold bg-[#0a0a0a] border border-white/12 group-hover:border-transparent text-white/80 group-hover:text-white transition-all duration-300 overflow-hidden">
+                {/* Shimmer sweep */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/8 to-transparent skew-x-12" />
+
+                <AnimatePresence mode="wait">
+                  {resumeHovered ? (
+                    <motion.span
+                      key="view"
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.18 }}
+                    >
+                      <Eye className="w-4 h-4 text-purple-300" />
+                      <span className="text-gradient-primary font-bold">View Resume</span>
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="download"
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.18 }}
+                    >
+                      <FileText className="w-4 h-4" />
+                      Download Resume
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+
+                {/* Sparkle on hover */}
+                <AnimatePresence>
+                  {resumeHovered && (
+                    <motion.span
+                      key="sparkle"
+                      initial={{ opacity: 0, scale: 0, rotate: -20 }}
+                      animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                      exit={{ opacity: 0, scale: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.a>
+
+            {/* Contact Me */}
             <Button
               variant="outline"
               size="lg"
